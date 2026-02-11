@@ -1,0 +1,174 @@
+"use client";
+
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, Calendar, ExternalLink } from "lucide-react";
+
+interface Edition {
+  year: number;
+  edition: string;
+  description: string;
+  highlights: string[];
+  photoLink?: string;
+}
+
+const editions: Edition[] = [
+  {
+    year: 2023,
+    edition: "1a Edizione",
+    description:
+      "La prima edizione del Cortile del Libro e della Carta ha dato il via a un nuovo appuntamento culturale per Montereale Valcellina. Un piccolo cortile, grandi storie.",
+    highlights: [
+      "Inaugurazione del festival",
+      "Primi incontri con autori locali",
+      "Laboratori di carta per bambini",
+      "Mercatino del libro usato",
+    ],
+    photoLink: "#",
+  },
+  {
+    year: 2024,
+    edition: "2a Edizione",
+    description:
+      "La seconda edizione ha visto crescere il festival con nuovi ospiti, pi\u00f9 laboratori e una partecipazione entusiasmante della comunit\u00e0.",
+    highlights: [
+      "Raddoppiati gli espositori",
+      "Laboratori di origami",
+      "Incontri con autori nazionali",
+      "Collaborazione con scuole locali",
+    ],
+    photoLink: "#",
+  },
+  {
+    year: 2025,
+    edition: "3a Edizione",
+    description:
+      "L'edizione 2025 porta il festival a un nuovo livello: due giorni ricchi di eventi, una passeggiata poetica, la Corale Polifonica e la zona food degli Alpini.",
+    highlights: [
+      "Due giorni di eventi (24-25 Maggio)",
+      "Passeggiata poetica dedicata a Pierluigi Cappello",
+      "Corale Polifonica con poeti friulani",
+      "Laboratori per bambini ampliati",
+      "Gran finale con pastasciutta degli Alpini",
+    ],
+    photoLink: "#",
+  },
+];
+
+export default function EdizioniSection() {
+  const [activeEdition, setActiveEdition] = useState(editions.length - 1);
+
+  const goNext = () =>
+    setActiveEdition((prev) => Math.min(prev + 1, editions.length - 1));
+  const goPrev = () => setActiveEdition((prev) => Math.max(prev - 1, 0));
+
+  const current = editions[activeEdition];
+
+  return (
+    <section id="edizioni" className="py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="text-center">
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
+            Archivio
+          </p>
+          <h2 className="mt-2 font-serif text-3xl font-bold text-foreground md:text-4xl lg:text-5xl text-balance">
+            Edizioni Passate
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-pretty">
+            {"Un viaggio attraverso le edizioni passate. Ogni anno, nuove storie, nuove emozioni."}
+          </p>
+        </div>
+
+        {/* Edition tabs */}
+        <div className="mt-12 flex justify-center gap-4">
+          {editions.map((ed, i) => (
+            <button
+              key={ed.year}
+              type="button"
+              onClick={() => setActiveEdition(i)}
+              className={`rounded-lg px-6 py-3 text-center transition-all ${
+                activeEdition === i
+                  ? "bg-primary text-primary-foreground shadow-md"
+                  : "bg-card text-foreground hover:bg-secondary"
+              }`}
+            >
+              <span className="block text-sm font-medium">{ed.edition}</span>
+              <span className="block text-lg font-bold">{ed.year}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Edition content */}
+        <div className="mx-auto mt-10 max-w-4xl">
+          <div className="rounded-2xl border border-border bg-card p-8 lg:p-12">
+            <div className="flex items-center justify-between">
+              <button
+                type="button"
+                onClick={goPrev}
+                disabled={activeEdition === 0}
+                className="rounded-full p-2 text-foreground transition-colors hover:bg-secondary disabled:opacity-30"
+                aria-label="Edizione precedente"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+
+              <div className="text-center">
+                <div className="flex items-center justify-center gap-2 text-accent">
+                  <Calendar className="h-5 w-5" />
+                  <span className="font-mono text-sm font-semibold">
+                    Anno {current.year}
+                  </span>
+                </div>
+                <h3 className="mt-2 font-serif text-3xl font-bold text-foreground">
+                  {current.edition}
+                </h3>
+              </div>
+
+              <button
+                type="button"
+                onClick={goNext}
+                disabled={activeEdition === editions.length - 1}
+                className="rounded-full p-2 text-foreground transition-colors hover:bg-secondary disabled:opacity-30"
+                aria-label="Edizione successiva"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
+            </div>
+
+            <p className="mt-6 text-center text-muted-foreground leading-relaxed">
+              {current.description}
+            </p>
+
+            <div className="mt-8">
+              <h4 className="text-center font-serif text-lg font-bold text-foreground">
+                Momenti salienti
+              </h4>
+              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                {current.highlights.map((h) => (
+                  <li
+                    key={h}
+                    className="flex items-start gap-2 rounded-lg bg-background p-3 text-sm text-foreground"
+                  >
+                    <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-accent" />
+                    {h}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {current.photoLink && (
+              <div className="mt-8 text-center">
+                <a
+                  href={current.photoLink}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
+                >
+                  Guarda le foto dell'edizione {current.year}
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
