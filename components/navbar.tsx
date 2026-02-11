@@ -7,10 +7,11 @@ const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#vuoi-visitare", label: "Vuoi Visitare?" },
   { href: "#vuoi-esporre", label: "Vuoi Esporre?" },
-  { href: "#dove-gusto", label: "Dove & Cosa" },
+  { href: "#food", label: "Food" },
   { href: "#programma", label: "Programma" },
   { href: "#edizioni", label: "Edizioni" },
   { href: "#contatti", label: "Contatti" },
+  { href: "#info-visita", label: "Info Visita" },
 ];
 
 export default function Navbar() {

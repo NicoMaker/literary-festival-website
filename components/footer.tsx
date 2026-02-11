@@ -1,13 +1,14 @@
 import { BookOpen, Facebook, Instagram, Heart } from "lucide-react";
 
 const footerLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Vuoi Visitare?", href: "#vuoi-visitare" },
-  { label: "Vuoi Esporre?", href: "#vuoi-esporre" },
-  { label: "Dove & Cosa", href: "#dove-gusto" },
-  { label: "Programma", href: "#programma" },
-  { label: "Edizioni", href: "#edizioni" },
-  { label: "Contatti", href: "#contatti" },
+  { href: "#home", label: "Home" },
+  { href: "#vuoi-visitare", label: "Vuoi Visitare?" },
+  { href: "#vuoi-esporre", label: "Vuoi Esporre?" },
+  { href: "#food", label: "Food" },
+  { href: "#programma", label: "Programma" },
+  { href: "#edizioni", label: "Edizioni" },
+  { href: "#contatti", label: "Contatti" },
+  { href: "#info-visita", label: "Info Visita" },
 ];
 
 const externalLinks = [
