@@ -10,8 +10,8 @@ const navLinks = [
   { href: "#food", label: "Food" },
   { href: "#programma", label: "Programma" },
   { href: "#edizioni", label: "Edizioni" },
-  { href: "#contatti", label: "Contatti" },
   { href: "#info-visita", label: "Info Visita" },
+  { href: "#contatti", label: "Contatti" }
 ];
 
 export default function Navbar() {
