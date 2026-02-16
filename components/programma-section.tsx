@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react"
-
+import React from "react";
 import { useState } from "react";
 import { Clock, BookOpen, Users, Palette } from "lucide-react";
+import Image from "next/image";
 
 type EventCategory = "letterari" | "tutti" | "bambini";
 
@@ -32,7 +32,7 @@ const saturdayEvents: EventItem[] = [
     description:
       "Quale legame unisce la nobile famiglia Dandolo al piccolo paese di Grizzo?",
     author: "Alessandro Fadelli e Luigi Alzetta",
-    curator: "Gruppo Ricerche \"Chei del Talpa\"",
+    curator: 'Gruppo Ricerche "Chei del Talpa"',
     category: "tutti",
   },
 ];
@@ -74,7 +74,7 @@ const sundayEvents: EventItem[] = [
   },
   {
     time: "11:30",
-    title: "Avventura libresca con \"La Giraffa con gli occhiali\"",
+    title: 'Avventura libresca con "La Giraffa con gli occhiali"',
     description:
       "Un colorato viaggio tra musica e storie, ritmi coinvolgenti. Laboratorio per bambini dai 4 agli 8 anni.",
     category: "bambini",
@@ -89,8 +89,7 @@ const sundayEvents: EventItem[] = [
   {
     time: "14:30",
     title: "Origami per tutte le et\u00e0",
-    description:
-      "Laboratorio gratuito previa iscrizione sul sito.",
+    description: "Laboratorio gratuito previa iscrizione sul sito.",
     author: "Maria Elena Fornasier",
     category: "tutti",
     note: "Iscrizione richiesta",
@@ -181,7 +180,7 @@ const categoryConfig: Record<
 function EventCard({ event }: { event: EventItem }) {
   const cat = categoryConfig[event.category];
   return (
-    <div className="group rounded-xl border border-border bg-card p-5 transition-all hover:shadow-lg">
+    <div className="group rounded-xl border border-border bg-background p-5 transition-all hover:shadow-lg">
       <div className="mb-3 flex items-start justify-between gap-3">
         <div className="flex items-center gap-2 text-muted-foreground">
           <Clock className="h-4 w-4" />
@@ -194,14 +193,22 @@ function EventCard({ event }: { event: EventItem }) {
           <span className="hidden sm:inline">{cat.label}</span>
         </span>
       </div>
-      <h4 className="font-serif text-lg font-bold text-foreground">{event.title}</h4>
+      <h4 className="font-serif text-lg font-bold text-foreground">
+        {event.title}
+      </h4>
       {event.author && (
-        <p className="mt-1 text-sm font-medium text-accent">con {event.author}</p>
+        <p className="mt-1 text-sm font-medium text-accent">
+          con {event.author}
+        </p>
       )}
       {event.curator && (
-        <p className="mt-0.5 text-xs text-muted-foreground">a cura di {event.curator}</p>
+        <p className="mt-0.5 text-xs text-muted-foreground">
+          a cura di {event.curator}
+        </p>
       )}
-      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{event.description}</p>
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+        {event.description}
+      </p>
       {event.note && (
         <span className="mt-2 inline-block rounded-md bg-secondary px-2 py-1 text-xs font-medium text-secondary-foreground">
           {event.note}
@@ -212,15 +219,25 @@ function EventCard({ event }: { event: EventItem }) {
 }
 
 export default function ProgrammaSection() {
-  const [activeDay, setActiveDay] = useState<"sabato" | "domenica">("domenica");
-  const [activeFilter, setActiveFilter] = useState<EventCategory | "all">("all");
+  const [activeDay, setActiveDay] = useState<"sabato" | "domenica">(
+    "domenica"
+  );
+  const [activeFilter, setActiveFilter] = useState<EventCategory | "all">(
+    "all"
+  );
 
   const events = activeDay === "sabato" ? saturdayEvents : sundayEvents;
   const filteredEvents =
-    activeFilter === "all" ? events : events.filter((e) => e.category === activeFilter);
+    activeFilter === "all"
+      ? events
+      : events.filter((e) => e.category === activeFilter);
 
   return (
-    <section id="programma" className="bg-card py-20 lg:py-28">
+    <section
+      id="programma"
+      className="py-20 lg:py-28"
+      style={{ background: "hsl(350 30% 93%)" }}
+    >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
@@ -230,16 +247,19 @@ export default function ProgrammaSection() {
             Due giorni di cultura e passione
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-pretty">
-            Incontri con autori, laboratori creativi per bambini, mercatino del libro e della carta, musica e tanto altro.
+            Incontri con autori, laboratori creativi per bambini, mercatino del
+            libro e della carta, musica e tanto altro.
           </p>
         </div>
 
         {/* Flyer image */}
         <div className="mt-10 flex justify-center">
           <div className="overflow-hidden rounded-xl border border-border shadow-lg">
-            <img
+            <Image
               src="/images/programma-a5-stampa-no-20abbondanze-page-0002.jpg"
               alt="Programma completo del festival - Sabato e Domenica"
+              width={600}
+              height={850}
               className="max-h-[600px] w-auto object-contain"
             />
           </div>
@@ -285,7 +305,10 @@ export default function ProgrammaSection() {
             Tutti
           </button>
           {(
-            Object.entries(categoryConfig) as [EventCategory, (typeof categoryConfig)["letterari"]][]
+            Object.entries(categoryConfig) as [
+              EventCategory,
+              (typeof categoryConfig)["letterari"],
+            ][]
           ).map(([key, config]) => (
             <button
               type="button"
@@ -306,7 +329,10 @@ export default function ProgrammaSection() {
         {/* Events grid */}
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {filteredEvents.map((event) => (
-            <EventCard key={`${event.time}-${event.title}`} event={event} />
+            <EventCard
+              key={`${event.time}-${event.title}`}
+              event={event}
+            />
           ))}
         </div>
 

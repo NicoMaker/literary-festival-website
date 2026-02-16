@@ -12,7 +12,7 @@ export default function ContattiSection() {
   };
 
   return (
-    <section id="contatti" className="bg-card py-20 lg:py-28">
+    <section id="contatti" className="py-20 lg:py-28" style={{ background: "hsl(30 25% 96%)" }}>
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">

@@ -1,8 +1,13 @@
 import { Store, FileText, ExternalLink, BookMarked } from "lucide-react";
+import Image from "next/image";
 
 export default function CandidatureSection() {
   return (
-    <section id="vuoi-esporre" className="bg-card py-20 lg:py-28">
+    <section
+      id="vuoi-esporre"
+      className="py-20 lg:py-28"
+      style={{ background: "hsl(25 35% 91%)" }}
+    >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
@@ -16,6 +21,17 @@ export default function CandidatureSection() {
           </p>
         </div>
 
+        {/* Espositore image */}
+        <div className="relative mx-auto mt-10 h-64 max-w-3xl overflow-hidden rounded-2xl md:h-80">
+          <Image
+            src="/images/espositore.jpg"
+            alt="Stand espositivo al festival con libri e carta artigianale"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent" />
+        </div>
+
         <div className="mt-14 grid gap-8 md:grid-cols-2">
           {/* Espositore */}
           <div className="flex flex-col items-center rounded-2xl border border-border bg-background p-8 text-center lg:p-12">
@@ -25,8 +41,10 @@ export default function CandidatureSection() {
             <h3 className="mt-6 font-serif text-2xl font-bold text-foreground">
               Candidati come Espositore
             </h3>
-            <p className="mt-2 text-sm font-medium text-accent">Sei una casa editrice?</p>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
+            <p className="mt-2 text-sm font-medium text-accent">
+              Sei una casa editrice?
+            </p>
+            <p className="mt-4 leading-relaxed text-muted-foreground">
               {"Porta i tuoi prodotti e le tue creazioni nel nostro mercatino letterario. Uno spazio nel cortile storico di Palazzo Toffoli per far conoscere la tua realt\u00e0 editoriale."}
             </p>
             <ul className="mt-6 flex flex-col gap-2 text-left text-sm text-muted-foreground">
@@ -62,8 +80,10 @@ export default function CandidatureSection() {
             <h3 className="mt-6 font-serif text-2xl font-bold text-foreground">
               Candida la tua Proposta
             </h3>
-            <p className="mt-2 text-sm font-medium text-primary">Presentazioni, laboratori, idee</p>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
+            <p className="mt-2 text-sm font-medium text-primary">
+              Presentazioni, laboratori, idee
+            </p>
+            <p className="mt-4 leading-relaxed text-muted-foreground">
               {"Hai un libro da presentare, un laboratorio da proporre o un'idea creativa? Inviaci la tua candidatura per partecipare al programma."}
             </p>
             <ul className="mt-6 flex flex-col gap-2 text-left text-sm text-muted-foreground">
@@ -93,12 +113,14 @@ export default function CandidatureSection() {
         </div>
 
         {/* Info box for publishers */}
-        <div className="mt-10 mx-auto max-w-3xl rounded-xl border border-border bg-background p-6 text-center">
-          <div className="flex items-center justify-center gap-2 mb-3">
+        <div className="mx-auto mt-10 max-w-3xl rounded-xl border border-border bg-background p-6 text-center">
+          <div className="mb-3 flex items-center justify-center gap-2">
             <BookMarked className="h-5 w-5 text-primary" />
-            <span className="font-serif text-lg font-bold text-foreground">Sei una casa editrice?</span>
+            <span className="font-serif text-lg font-bold text-foreground">
+              Sei una casa editrice?
+            </span>
           </div>
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <p className="text-sm leading-relaxed text-muted-foreground">
             {"Il Cortile del Libro e della Carta accoglie case editrici indipendenti, piccoli editori e realt\u00e0 artigianali legate al mondo del libro e della carta. Contattaci per scoprire le modalit\u00e0 di partecipazione e le agevolazioni dedicate."}
           </p>
           <a

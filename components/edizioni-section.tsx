@@ -1,14 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Calendar, ExternalLink } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Calendar,
+  Camera,
+} from "lucide-react";
+import Image from "next/image";
 
 interface Edition {
   year: number;
   edition: string;
   description: string;
   highlights: string[];
-  photoLink?: string;
+  image: string;
+  photoPageLink: string;
 }
 
 const editions: Edition[] = [
@@ -23,7 +30,8 @@ const editions: Edition[] = [
       "Laboratori di carta per bambini",
       "Mercatino del libro usato",
     ],
-    photoLink: "#",
+    image: "/images/edizione-2023.jpg",
+    photoPageLink: "/foto/2023",
   },
   {
     year: 2024,
@@ -36,7 +44,8 @@ const editions: Edition[] = [
       "Incontri con autori nazionali",
       "Collaborazione con scuole locali",
     ],
-    photoLink: "#",
+    image: "/images/edizione-2024.jpg",
+    photoPageLink: "/foto/2024",
   },
   {
     year: 2025,
@@ -50,7 +59,8 @@ const editions: Edition[] = [
       "Laboratori per bambini ampliati",
       "Gran finale con pastasciutta degli Alpini",
     ],
-    photoLink: "#",
+    image: "/images/edizione-2025.jpg",
+    photoPageLink: "/foto/2025",
   },
 ];
 
@@ -64,7 +74,11 @@ export default function EdizioniSection() {
   const current = editions[activeEdition];
 
   return (
-    <section id="edizioni" className="py-20 lg:py-28">
+    <section
+      id="edizioni"
+      className="py-20 lg:py-28"
+      style={{ background: "hsl(270 20% 93%)" }}
+    >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
@@ -88,7 +102,7 @@ export default function EdizioniSection() {
               className={`rounded-lg px-6 py-3 text-center transition-all ${
                 activeEdition === i
                   ? "bg-primary text-primary-foreground shadow-md"
-                  : "bg-card text-foreground hover:bg-secondary"
+                  : "bg-background text-foreground hover:bg-secondary"
               }`}
             >
               <span className="block text-sm font-medium">{ed.edition}</span>
@@ -98,74 +112,92 @@ export default function EdizioniSection() {
         </div>
 
         {/* Edition content */}
-        <div className="mx-auto mt-10 max-w-4xl">
-          <div className="rounded-2xl border border-border bg-card p-8 lg:p-12">
-            <div className="flex items-center justify-between">
-              <button
-                type="button"
-                onClick={goPrev}
-                disabled={activeEdition === 0}
-                className="rounded-full p-2 text-foreground transition-colors hover:bg-secondary disabled:opacity-30"
-                aria-label="Edizione precedente"
-              >
-                <ChevronLeft className="h-6 w-6" />
-              </button>
-
-              <div className="text-center">
-                <div className="flex items-center justify-center gap-2 text-accent">
-                  <Calendar className="h-5 w-5" />
-                  <span className="font-mono text-sm font-semibold">
-                    Anno {current.year}
-                  </span>
+        <div className="mx-auto mt-10 max-w-5xl">
+          <div className="overflow-hidden rounded-2xl border border-border bg-background">
+            {/* Edition image */}
+            <div className="relative h-64 md:h-80">
+              <Image
+                src={current.image}
+                alt={`Foto dell'edizione ${current.year} del festival`}
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                <div className="text-primary-foreground">
+                  <p className="text-sm font-medium opacity-80">
+                    {current.edition}
+                  </p>
+                  <p className="font-serif text-3xl font-bold">
+                    {current.year}
+                  </p>
                 </div>
-                <h3 className="mt-2 font-serif text-3xl font-bold text-foreground">
-                  {current.edition}
-                </h3>
-              </div>
-
-              <button
-                type="button"
-                onClick={goNext}
-                disabled={activeEdition === editions.length - 1}
-                className="rounded-full p-2 text-foreground transition-colors hover:bg-secondary disabled:opacity-30"
-                aria-label="Edizione successiva"
-              >
-                <ChevronRight className="h-6 w-6" />
-              </button>
-            </div>
-
-            <p className="mt-6 text-center text-muted-foreground leading-relaxed">
-              {current.description}
-            </p>
-
-            <div className="mt-8">
-              <h4 className="text-center font-serif text-lg font-bold text-foreground">
-                Momenti salienti
-              </h4>
-              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-                {current.highlights.map((h) => (
-                  <li
-                    key={h}
-                    className="flex items-start gap-2 rounded-lg bg-background p-3 text-sm text-foreground"
-                  >
-                    <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-accent" />
-                    {h}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {current.photoLink && (
-              <div className="mt-8 text-center">
                 <a
-                  href={current.photoLink}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
+                  href={current.photoPageLink}
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary-foreground/90 px-4 py-2 text-sm font-semibold text-primary transition-transform hover:scale-105"
                 >
-                  Guarda le foto dell'edizione {current.year}
-                  <ExternalLink className="h-3.5 w-3.5" />
+                  <Camera className="h-4 w-4" />
+                  Galleria Foto
                 </a>
               </div>
-            )}
+            </div>
+
+            <div className="p-8 lg:p-12">
+              <div className="flex items-center justify-between">
+                <button
+                  type="button"
+                  onClick={goPrev}
+                  disabled={activeEdition === 0}
+                  className="rounded-full p-2 text-foreground transition-colors hover:bg-secondary disabled:opacity-30"
+                  aria-label="Edizione precedente"
+                >
+                  <ChevronLeft className="h-6 w-6" />
+                </button>
+
+                <div className="text-center">
+                  <div className="flex items-center justify-center gap-2 text-accent">
+                    <Calendar className="h-5 w-5" />
+                    <span className="font-mono text-sm font-semibold">
+                      Anno {current.year}
+                    </span>
+                  </div>
+                  <h3 className="mt-2 font-serif text-3xl font-bold text-foreground">
+                    {current.edition}
+                  </h3>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={goNext}
+                  disabled={activeEdition === editions.length - 1}
+                  className="rounded-full p-2 text-foreground transition-colors hover:bg-secondary disabled:opacity-30"
+                  aria-label="Edizione successiva"
+                >
+                  <ChevronRight className="h-6 w-6" />
+                </button>
+              </div>
+
+              <p className="mt-6 text-center leading-relaxed text-muted-foreground">
+                {current.description}
+              </p>
+
+              <div className="mt-8">
+                <h4 className="text-center font-serif text-lg font-bold text-foreground">
+                  Momenti salienti
+                </h4>
+                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {current.highlights.map((h) => (
+                    <li
+                      key={h}
+                      className="flex items-start gap-2 rounded-lg bg-card p-3 text-sm text-foreground"
+                    >
+                      <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-accent" />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
