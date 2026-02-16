@@ -14,7 +14,7 @@ const quickCards = [
     desc: "Incontri con autori e dibattiti",
   },
   {
-    href: "#dove-gusto",
+    href: "#food",
     icon: <UtensilsCrossed className="h-6 w-6" />,
     label: "Cibi & Gusto",
     desc: "Sapori del territorio friulano",
