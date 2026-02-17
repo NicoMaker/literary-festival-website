@@ -9,8 +9,8 @@ const sections = [
   { id: "food", label: "Food", color: "hsl(35 55% 40%)" },
   { id: "programma", label: "Programma", color: "hsl(350 45% 40%)" },
   { id: "edizioni", label: "Edizioni", color: "hsl(270 30% 45%)" },
-  { id: "contatti", label: "Contatti", color: "hsl(30 35% 40%)" },
   { id: "info-visita", label: "Info", color: "hsl(200 35% 40%)" },
+  { id: "contatti", label: "Contatti", color: "hsl(30 35% 40%)" },
 ];
 
 export default function SectionIndicator() {

@@ -22,8 +22,8 @@ export default function Page() {
         <FoodSection />
         <ProgrammaSection />
         <EdizioniSection />
-        <ContattiSection />
         <InfoVisitaSection />
+        <ContattiSection />
       </main>
       <Footer />
     </>

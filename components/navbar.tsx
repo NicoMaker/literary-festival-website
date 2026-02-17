@@ -10,8 +10,8 @@ const navLinks = [
   { href: "#food", label: "Food", color: "hsl(350 58% 35%)" },
   { href: "#programma", label: "Programma", color: "hsl(350 45% 40%)" },
   { href: "#edizioni", label: "Edizioni", color: "hsl(350 58% 35%)" },
-  { href: "#contatti", label: "Contatti", color: "hsl(350 58% 35%)" },
   { href: "#info-visita", label: "Info Visita", color: "hsl(350 58% 35%)" },
+  { href: "#contatti", label: "Contatti", color: "hsl(350 58% 35%)" },
 ];
 
 export default function Navbar() {
