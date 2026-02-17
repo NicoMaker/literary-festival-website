@@ -6,7 +6,7 @@ export default function CandidatureSection() {
     <section
       id="vuoi-esporre"
       className="scroll-mt-20 py-20 lg:py-28"
-      style={{ background: "hsl(25 35% 91%)" }}
+      style={{ background: "#ffffff" }}
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
@@ -34,7 +34,7 @@ export default function CandidatureSection() {
 
         <div className="mt-14 grid gap-8 md:grid-cols-2">
           {/* Espositore */}
-          <div className="flex flex-col items-center rounded-2xl border border-border bg-background p-8 text-center lg:p-12">
+          <div className="flex flex-col items-center rounded-2xl border border-border bg-white p-8 text-center shadow-md lg:p-12">
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
               <Store className="h-8 w-8" />
             </div>
@@ -45,7 +45,7 @@ export default function CandidatureSection() {
               Sei una casa editrice?
             </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              {"Porta i tuoi prodotti e le tue creazioni nel nostro mercatino letterario. Uno spazio nel cortile storico di Palazzo Toffoli per far conoscere la tua realt\u00e0 editoriale."}
+              {"Porta i tuoi prodotti e le tue creazioni nel nostro mercatino letterario. Uno spazio nel cortile storico di Palazzo Toffoli per far conoscere la tua realtà editoriale."}
             </p>
             <ul className="mt-6 flex flex-col gap-2 text-left text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
@@ -54,7 +54,7 @@ export default function CandidatureSection() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                {"Visibilit\u00e0 sui canali social del festival"}
+                {"Visibilità sui canali social del festival"}
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
@@ -73,7 +73,7 @@ export default function CandidatureSection() {
           </div>
 
           {/* Proposta */}
-          <div className="flex flex-col items-center rounded-2xl border border-border bg-background p-8 text-center lg:p-12">
+          <div className="flex flex-col items-center rounded-2xl border border-border bg-white p-8 text-center shadow-md lg:p-12">
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-accent text-accent-foreground">
               <FileText className="h-8 w-8" />
             </div>
@@ -113,7 +113,7 @@ export default function CandidatureSection() {
         </div>
 
         {/* Info box for publishers */}
-        <div className="mx-auto mt-10 max-w-3xl rounded-xl border border-border bg-background p-6 text-center">
+        <div className="mx-auto mt-10 max-w-3xl rounded-xl border border-border bg-white p-6 text-center shadow-md">
           <div className="mb-3 flex items-center justify-center gap-2">
             <BookMarked className="h-5 w-5 text-primary" />
             <span className="font-serif text-lg font-bold text-foreground">
@@ -121,7 +121,7 @@ export default function CandidatureSection() {
             </span>
           </div>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            {"Il Cortile del Libro e della Carta accoglie case editrici indipendenti, piccoli editori e realt\u00e0 artigianali legate al mondo del libro e della carta. Contattaci per scoprire le modalit\u00e0 di partecipazione e le agevolazioni dedicate."}
+            {"Il Cortile del Libro e della Carta accoglie case editrici indipendenti, piccoli editori e realtà artigianali legate al mondo del libro e della carta. Contattaci per scoprire le modalità di partecipazione e le agevolazioni dedicate."}
           </p>
           <a
             href="mailto:info@cortiledellibroedellacarta.it"

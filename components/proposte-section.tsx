@@ -21,7 +21,7 @@ const bambiniActivities = [
     age: "dai 4 agli 8 anni",
     author: "Stefania Del Rizzo",
     description:
-      "Lettura animata in italiano e friulano e un\u2019attivit\u00e0 creativa che stimola fantasia e manualit\u00e0.",
+      "Lettura animata in italiano e friulano e un'attività creativa che stimola fantasia e manualità.",
   },
   {
     title: "La leggenda dei Can-Cantanti",
@@ -74,7 +74,7 @@ const tuttiActivities = [
     time: "Dalle 9:30 alle 18:30 - Cortile di Palazzo Toffoli",
   },
   {
-    title: "Origami per Tutte le Et\u00e0",
+    title: "Origami per Tutte le Età",
     icon: <Palette className="h-5 w-5" />,
     description:
       "Laboratorio gratuito di origami con Maria Elena Fornasier. Previa iscrizione sul sito.",
@@ -87,7 +87,7 @@ export default function ProposteSection() {
     <section
       id="vuoi-visitare"
       className="scroll-mt-20 py-20 lg:py-28"
-      style={{ background: "hsl(140 25% 93%)" }}
+      style={{ background: "#ffffff" }}
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
@@ -95,10 +95,10 @@ export default function ProposteSection() {
             Vuoi Visitare?
           </p>
           <h2 className="mt-2 font-serif text-3xl font-bold text-foreground md:text-4xl lg:text-5xl text-balance">
-            {"C'\u00e8 qualcosa per tutti"}
+            {"C'è qualcosa per tutti"}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-pretty">
-            {"Bambini, adulti, famiglie: il festival offre un ricco programma di attivit\u00e0 per ogni et\u00e0 e interesse."}
+            {"Bambini, adulti, famiglie: il festival offre un ricco programma di attività per ogni età e interesse."}
           </p>
         </div>
 

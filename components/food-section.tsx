@@ -6,7 +6,7 @@ export default function FoodSection() {
     <section
       id="food"
       className="scroll-mt-20 py-20 lg:py-28"
-      style={{ background: "hsl(35 40% 90%)" }}
+      style={{ background: "#ffffff" }}
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mb-12 text-center">
@@ -17,7 +17,7 @@ export default function FoodSection() {
             I sapori del territorio
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-pretty">
-            {"Tra un incontro e l'altro, gustati le specialit\u00e0 locali preparate con passione dai volontari del territorio."}
+            {"Tra un incontro e l'altro, gustati le specialità locali preparate con passione dai volontari del territorio."}
           </p>
         </div>
 
@@ -25,14 +25,14 @@ export default function FoodSection() {
           <div className="relative h-72 overflow-hidden rounded-2xl lg:h-auto lg:min-h-[400px]">
             <Image
               src="/images/food-zone.jpg"
-              alt="Area gastronomica del festival con specialit\u00e0 friulane"
+              alt="Area gastronomica del festival con specialità friulane"
               fill
               className="object-cover"
             />
           </div>
 
           <div className="flex flex-col gap-5">
-            <div className="rounded-xl border border-border bg-background p-5">
+            <div className="rounded-xl border border-border bg-white p-5 shadow-md">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                   <UtensilsCrossed className="h-5 w-5" />
@@ -55,7 +55,7 @@ export default function FoodSection() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-border bg-background p-5">
+            <div className="rounded-xl border border-border bg-white p-5 shadow-md">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent text-accent-foreground">
                   <UtensilsCrossed className="h-5 w-5" />
@@ -80,7 +80,7 @@ export default function FoodSection() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-border bg-background p-5">
+            <div className="rounded-xl border border-border bg-white p-5 shadow-md">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                   <Wine className="h-5 w-5" />

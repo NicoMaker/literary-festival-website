@@ -37,7 +37,7 @@ const editions: Edition[] = [
     year: 2024,
     edition: "2a Edizione",
     description:
-      "La seconda edizione ha visto crescere il festival con nuovi ospiti, pi\u00f9 laboratori e una partecipazione entusiasmante della comunit\u00e0.",
+      "La seconda edizione ha visto crescere il festival con nuovi ospiti, più laboratori e una partecipazione entusiasmante della comunità.",
     highlights: [
       "Raddoppiati gli espositori",
       "Laboratori di origami",
@@ -77,7 +77,7 @@ export default function EdizioniSection() {
     <section
       id="edizioni"
       className="scroll-mt-20 py-20 lg:py-28"
-      style={{ background: "hsl(270 20% 93%)" }}
+      style={{ background: "#ffffff" }}
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
@@ -102,7 +102,7 @@ export default function EdizioniSection() {
               className={`rounded-lg px-6 py-3 text-center transition-all ${
                 activeEdition === i
                   ? "bg-primary text-primary-foreground shadow-md"
-                  : "bg-background text-foreground hover:bg-secondary"
+                  : "bg-white text-foreground shadow-sm hover:bg-secondary"
               }`}
             >
               <span className="block text-sm font-medium">{ed.edition}</span>
@@ -113,7 +113,7 @@ export default function EdizioniSection() {
 
         {/* Edition content */}
         <div className="mx-auto mt-10 max-w-5xl">
-          <div className="overflow-hidden rounded-2xl border border-border bg-background">
+          <div className="overflow-hidden rounded-2xl border border-border bg-white shadow-md">
             {/* Edition image */}
             <div className="relative h-64 md:h-80">
               <Image
@@ -189,7 +189,7 @@ export default function EdizioniSection() {
                   {current.highlights.map((h) => (
                     <li
                       key={h}
-                      className="flex items-start gap-2 rounded-lg bg-card p-3 text-sm text-foreground"
+                      className="flex items-start gap-2 rounded-lg bg-white p-3 text-sm text-foreground shadow-sm border border-border"
                     >
                       <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-accent" />
                       {h}

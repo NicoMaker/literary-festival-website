@@ -22,7 +22,7 @@ const saturdayEvents: EventItem[] = [
     time: "17:00",
     title: "Come un sentiero di matita",
     description:
-      "Passeggiata sentimentale tra i versi di Pierluigi Cappello. Suggestioni in versi e ricordi di uno straordinario semplificatore della complessit\u00e0 del vivere.",
+      "Passeggiata sentimentale tra i versi di Pierluigi Cappello. Suggestioni in versi e ricordi di uno straordinario semplificatore della complessità del vivere.",
     author: "Pierluigi Cappello",
     category: "letterari",
   },
@@ -40,7 +40,7 @@ const saturdayEvents: EventItem[] = [
 const sundayEvents: EventItem[] = [
   {
     time: "10:00",
-    title: "To(u)riol\u00f2n, cronache vagabonde",
+    title: "To(u)riolòn, cronache vagabonde",
     description:
       "L'autore racconta 18+1 itinerari in bicicletta tra Veneto e Friuli.",
     author: "Eros Viel",
@@ -88,7 +88,7 @@ const sundayEvents: EventItem[] = [
   },
   {
     time: "14:30",
-    title: "Origami per tutte le et\u00e0",
+    title: "Origami per tutte le età",
     description: "Laboratorio gratuito previa iscrizione sul sito.",
     author: "Maria Elena Fornasier",
     category: "tutti",
@@ -98,7 +98,7 @@ const sundayEvents: EventItem[] = [
     time: "15:00",
     title: "Scrivere per il futuro",
     description:
-      "Dialogo urgente tra Autori e Cittadini per una coesistenza pi\u00f9 consapevole con il selvatico.",
+      "Dialogo urgente tra Autori e Cittadini per una coesistenza più consapevole con il selvatico.",
     author: "Luigi Casanova, Marco Niro, Sara Segantin e Gloria Solini",
     curator: "Associazione Mountain Wilderness Italia",
     category: "tutti",
@@ -180,7 +180,7 @@ const categoryConfig: Record<
 function EventCard({ event }: { event: EventItem }) {
   const cat = categoryConfig[event.category];
   return (
-    <div className="group rounded-xl border border-border bg-background p-5 transition-all hover:shadow-lg">
+    <div className="group rounded-xl border border-border bg-white p-5 shadow-md transition-all hover:shadow-lg">
       <div className="mb-3 flex items-start justify-between gap-3">
         <div className="flex items-center gap-2 text-muted-foreground">
           <Clock className="h-4 w-4" />
@@ -236,7 +236,7 @@ export default function ProgrammaSection() {
     <section
       id="programma"
       className="scroll-mt-20 py-20 lg:py-28"
-      style={{ background: "hsl(350 30% 93%)" }}
+      style={{ background: "#ffffff" }}
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
@@ -273,7 +273,7 @@ export default function ProgrammaSection() {
             className={`rounded-lg px-6 py-3 font-semibold transition-all ${
               activeDay === "sabato"
                 ? "bg-primary text-primary-foreground shadow-md"
-                : "bg-background text-foreground hover:bg-secondary"
+                : "bg-white text-foreground shadow-sm hover:bg-secondary"
             }`}
           >
             Sabato
@@ -284,7 +284,7 @@ export default function ProgrammaSection() {
             className={`rounded-lg px-6 py-3 font-semibold transition-all ${
               activeDay === "domenica"
                 ? "bg-primary text-primary-foreground shadow-md"
-                : "bg-background text-foreground hover:bg-secondary"
+                : "bg-white text-foreground shadow-sm hover:bg-secondary"
             }`}
           >
             Domenica
@@ -299,7 +299,7 @@ export default function ProgrammaSection() {
             className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
               activeFilter === "all"
                 ? "bg-foreground text-background"
-                : "bg-background text-foreground hover:bg-secondary"
+                : "bg-white text-foreground shadow-sm hover:bg-secondary"
             }`}
           >
             Tutti
@@ -317,7 +317,7 @@ export default function ProgrammaSection() {
               className={`inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
                 activeFilter === key
                   ? config.color
-                  : "bg-background text-foreground hover:bg-secondary"
+                  : "bg-white text-foreground shadow-sm hover:bg-secondary"
               }`}
             >
               {config.icon}
