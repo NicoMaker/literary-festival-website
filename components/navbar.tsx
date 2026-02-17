@@ -5,10 +5,10 @@ import { Menu, X, BookOpen } from "lucide-react";
 
 const navLinks = [
   { href: "#home", label: "Home", color: "hsl(350 58% 35%)" },
-  { href: "#vuoi-visitare", label: "Vuoi Visitare?", color: "hsl(350 58% 35%))" },
+  { href: "#vuoi-visitare", label: "Vuoi Visitare?", color: "hsl(350 58% 35%)" },
   { href: "#vuoi-esporre", label: "Vuoi Esporre?", color: "hsl(350 58% 35%)" },
   { href: "#food", label: "Food", color: "hsl(350 58% 35%)" },
-  { href: "#programma", label: "Programma", color: "hsl(350 45% 40%)" },
+  { href: "#programma", label: "Programma", color: "hsl(350 58% 35%)" },
   { href: "#edizioni", label: "Edizioni", color: "hsl(350 58% 35%)" },
   { href: "#info-visita", label: "Info Visita", color: "hsl(350 58% 35%)" },
   { href: "#contatti", label: "Contatti", color: "hsl(350 58% 35%)" },
