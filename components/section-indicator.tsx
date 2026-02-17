@@ -4,13 +4,13 @@ import { useState, useEffect, useCallback } from "react";
 
 const sections = [
   { id: "home", label: "Home", color: "hsl(350 58% 35%)" },
-  { id: "vuoi-visitare", label: "Visitare", color: "hsl(140 30% 38%)" },
-  { id: "vuoi-esporre", label: "Esporre", color: "hsl(25 50% 42%)" },
-  { id: "food", label: "Food", color: "hsl(35 55% 40%)" },
-  { id: "programma", label: "Programma", color: "hsl(350 45% 40%)" },
-  { id: "edizioni", label: "Edizioni", color: "hsl(270 30% 45%)" },
-  { id: "info-visita", label: "Info", color: "hsl(200 35% 40%)" },
-  { id: "contatti", label: "Contatti", color: "hsl(30 35% 40%)" },
+  { id: "vuoi-visitare", label: "Visitare", color: "hsl(350 58% 35%" },
+  { id: "vuoi-esporre", label: "Esporre", color: "hsl(350 58% 35%" },
+  { id: "food", label: "Food", color: "hsl(350 58% 35%)" },
+  { id: "programma", label: "Programma", color: "hsl(350 58% 35%)" },
+  { id: "edizioni", label: "Edizioni", color: "hsl(350 58% 35%)" },
+  { id: "info-visita", label: "Info", color: "hsl(350 58% 35%)" },
+  { id: "contatti", label: "Contatti", color: "hsl(350 58% 35%)" },
 ];
 
 export default function SectionIndicator() {
@@ -40,9 +40,9 @@ export default function SectionIndicator() {
 
   return (
     <>
-      {/* Top color bar - always visible */}
+      {/* Top color bar - below navbar */}
       <div
-        className="fixed top-0 left-0 right-0 z-[60] h-1 transition-colors duration-500"
+        className="fixed top-0 left-0 right-0 z-40 h-1 transition-colors duration-500"
         style={{ backgroundColor: activeSection?.color || sections[0].color }}
       />
 
