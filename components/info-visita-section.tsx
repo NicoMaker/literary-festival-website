@@ -6,7 +6,7 @@ export default function InfoVisitaSection() {
     <section
       id="info-visita"
       className="scroll-mt-20 py-20 lg:py-28"
-      style={{ background: "hsl(200 25% 92%)" }}
+      style={{ background: "#ffffff" }}
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
@@ -49,7 +49,7 @@ export default function InfoVisitaSection() {
 
           {/* Info cards */}
           <div className="flex flex-col gap-5">
-            <div className="rounded-xl border border-border bg-background p-5">
+            <div className="rounded-xl border border-border bg-white p-5 shadow-md">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                   <MapPin className="h-5 w-5" />
@@ -67,7 +67,7 @@ export default function InfoVisitaSection() {
               </p>
             </div>
 
-            <div className="rounded-xl border border-border bg-background p-5">
+            <div className="rounded-xl border border-border bg-white p-5 shadow-md">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent text-accent-foreground">
                   <Car className="h-5 w-5" />
@@ -81,7 +81,7 @@ export default function InfoVisitaSection() {
               </p>
             </div>
 
-            <div className="rounded-xl border border-border bg-background p-5">
+            <div className="rounded-xl border border-border bg-white p-5 shadow-md">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                   <Train className="h-5 w-5" />
@@ -95,7 +95,7 @@ export default function InfoVisitaSection() {
               </p>
             </div>
 
-            <div className="rounded-xl border border-border bg-background p-5">
+            <div className="rounded-xl border border-border bg-white p-5 shadow-md">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent text-accent-foreground">
                   <Navigation className="h-5 w-5" />

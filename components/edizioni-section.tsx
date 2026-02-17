@@ -68,8 +68,9 @@ export default function EdizioniSection() {
   const [activeEdition, setActiveEdition] = useState(editions.length - 1);
 
   const goNext = () =>
-    setActiveEdition((prev) => Math.min(prev + 1, editions.length - 1));
-  const goPrev = () => setActiveEdition((prev) => Math.max(prev - 1, 0));
+    setActiveEdition((prev) => (prev + 1) % editions.length);
+  const goPrev = () =>
+    setActiveEdition((prev) => (prev - 1 + editions.length) % editions.length);
 
   const current = editions[activeEdition];
 
@@ -147,8 +148,7 @@ export default function EdizioniSection() {
                 <button
                   type="button"
                   onClick={goPrev}
-                  disabled={activeEdition === 0}
-                  className="rounded-full p-2 text-foreground transition-colors hover:bg-secondary disabled:opacity-30"
+                  className="rounded-full p-2 text-foreground transition-colors hover:bg-secondary"
                   aria-label="Edizione precedente"
                 >
                   <ChevronLeft className="h-6 w-6" />
@@ -169,8 +169,7 @@ export default function EdizioniSection() {
                 <button
                   type="button"
                   onClick={goNext}
-                  disabled={activeEdition === editions.length - 1}
-                  className="rounded-full p-2 text-foreground transition-colors hover:bg-secondary disabled:opacity-30"
+                  className="rounded-full p-2 text-foreground transition-colors hover:bg-secondary"
                   aria-label="Edizione successiva"
                 >
                   <ChevronRight className="h-6 w-6" />

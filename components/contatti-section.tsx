@@ -12,7 +12,7 @@ export default function ContattiSection() {
   };
 
   return (
-    <section id="contatti" className="scroll-mt-20 py-20 lg:py-28" style={{ background: "hsl(30 25% 96%)" }}>
+    <section id="contatti" className="scroll-mt-20 py-20 lg:py-28" style={{ background: "#ffffff" }}>
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
@@ -28,7 +28,7 @@ export default function ContattiSection() {
 
         <div className="mt-14 grid gap-10 lg:grid-cols-2">
           {/* Contact form */}
-          <div className="rounded-2xl border border-border bg-background p-8">
+          <div className="rounded-2xl border border-border bg-white p-8 shadow-md">
             <h3 className="font-serif text-xl font-bold text-foreground">
               Scrivici un messaggio
             </h3>
@@ -55,7 +55,7 @@ export default function ContattiSection() {
                       id="nome"
                       type="text"
                       required
-                      className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-foreground transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      className="w-full rounded-lg border border-border bg-white px-4 py-2.5 text-foreground transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                       placeholder="Il tuo nome"
                     />
                   </div>
@@ -70,7 +70,7 @@ export default function ContattiSection() {
                       id="cognome"
                       type="text"
                       required
-                      className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-foreground transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      className="w-full rounded-lg border border-border bg-white px-4 py-2.5 text-foreground transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                       placeholder="Il tuo cognome"
                     />
                   </div>
@@ -86,7 +86,7 @@ export default function ContattiSection() {
                     id="email"
                     type="email"
                     required
-                    className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-foreground transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                    className="w-full rounded-lg border border-border bg-white px-4 py-2.5 text-foreground transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                     placeholder="la-tua-email@esempio.it"
                   />
                 </div>
@@ -100,7 +100,7 @@ export default function ContattiSection() {
                   <input
                     id="telefono"
                     type="tel"
-                    className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-foreground transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                    className="w-full rounded-lg border border-border bg-white px-4 py-2.5 text-foreground transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                     placeholder="+39 0000 000000"
                   />
                 </div>
@@ -115,7 +115,7 @@ export default function ContattiSection() {
                     id="messaggio"
                     rows={4}
                     required
-                    className="w-full resize-none rounded-lg border border-border bg-card px-4 py-2.5 text-foreground transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                    className="w-full resize-none rounded-lg border border-border bg-white px-4 py-2.5 text-foreground transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                     placeholder="Il tuo messaggio..."
                   />
                 </div>
@@ -132,7 +132,7 @@ export default function ContattiSection() {
 
           {/* Contact info & social */}
           <div className="flex flex-col gap-6">
-            <div className="rounded-2xl border border-border bg-background p-8">
+            <div className="rounded-2xl border border-border bg-white p-8 shadow-md">
               <h3 className="font-serif text-xl font-bold text-foreground">
                 Seguici sui Social
               </h3>
@@ -172,7 +172,7 @@ export default function ContattiSection() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-border bg-background p-8">
+            <div className="rounded-2xl border border-border bg-white p-8 shadow-md">
               <h3 className="font-serif text-xl font-bold text-foreground">
                 Informazioni di contatto
               </h3>
