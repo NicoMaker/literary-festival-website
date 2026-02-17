@@ -1,4 +1,4 @@
-import { CalendarDays, MapPin, Baby, UtensilsCrossed } from "lucide-react";
+import { CalendarDays, MapPin, Baby, UtensilsCrossed, BookOpen } from "lucide-react";
 
 const quickCards = [
   {
@@ -9,6 +9,7 @@ const quickCards = [
   },
   {
     href: "#adulti",
+    icon: <BookOpen className="h-6 w-6" />,
     label: "Adulti",
     desc: "Incontri con autori e dibattiti",
   },
@@ -80,21 +81,13 @@ export default function HeroSection() {
               href={card.href}
               className="group flex flex-col items-center gap-2 rounded-xl bg-primary-foreground/10 px-6 py-5 backdrop-blur-sm transition-all hover:bg-primary-foreground/20"
             >
-              {card.icon && (
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary-foreground/20 transition-colors group-hover:bg-primary-foreground/30">
-                  {card.icon}
-                </div>
-              )}
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary-foreground/20 transition-colors group-hover:bg-primary-foreground/30">
+                {card.icon}
+              </div>
               <span className="text-base font-bold">{card.label}</span>
-              <span className="text-center text-xs opacity-70">{card.desc}</span>
+              <span className="text-xs opacity-70 text-center">{card.desc}</span>
             </a>
           ))}
-        </div>
-      </div>
-
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-        <div className="flex h-8 w-5 items-start justify-center rounded-full border-2 border-primary-foreground/50 p-1">
-          <div className="h-2 w-1 animate-bounce rounded-full bg-primary-foreground/70" />
         </div>
       </div>
     </section>
