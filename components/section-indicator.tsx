@@ -59,10 +59,10 @@ export default function SectionIndicator() {
             >
               {/* Label tooltip */}
               <span
-                className="pointer-events-none absolute right-6 whitespace-nowrap rounded-md px-2 py-1 text-xs font-semibold opacity-0 transition-all duration-200 group-hover:opacity-100"
+                className="pointer-events-none absolute right-6 whitespace-nowrap rounded-md px-2 py-1 text-xs font-semibold text-white opacity-0 transition-all duration-200 group-hover:opacity-100"
                 style={{
                   backgroundColor: s.color,
-                  color: "white",
+                  color: "#ffffff",
                 }}
               >
                 {s.label}
