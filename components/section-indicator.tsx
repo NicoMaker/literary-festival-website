@@ -4,8 +4,8 @@ import { useState, useEffect, useCallback } from "react";
 
 const sections = [
   { id: "home", label: "Home", color: "hsl(350 58% 35%)" },
-  { id: "vuoi-visitare", label: "Visitare", color: "hsl(350 58% 35%" },
-  { id: "vuoi-esporre", label: "Esporre", color: "hsl(350 58% 35%" },
+  { id: "vuoi-visitare", label: "Visitare", color: "hsl(350 58% 35%)" },
+  { id: "vuoi-esporre", label: "Esporre", color: "hsl(350 58% 35%)" },
   { id: "food", label: "Food", color: "hsl(350 58% 35%)" },
   { id: "programma", label: "Programma", color: "hsl(350 58% 35%)" },
   { id: "edizioni", label: "Edizioni", color: "hsl(350 58% 35%)" },
