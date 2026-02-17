@@ -5,7 +5,7 @@ export default function CandidatureSection() {
   return (
     <section
       id="vuoi-esporre"
-      className="py-20 lg:py-28"
+      className="scroll-mt-20 py-20 lg:py-28"
       style={{ background: "hsl(25 35% 91%)" }}
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">

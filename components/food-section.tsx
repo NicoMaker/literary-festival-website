@@ -5,7 +5,7 @@ export default function FoodSection() {
   return (
     <section
       id="food"
-      className="py-20 lg:py-28"
+      className="scroll-mt-20 py-20 lg:py-28"
       style={{ background: "hsl(35 40% 90%)" }}
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">

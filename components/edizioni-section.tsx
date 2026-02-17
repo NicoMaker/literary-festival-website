@@ -76,7 +76,7 @@ export default function EdizioniSection() {
   return (
     <section
       id="edizioni"
-      className="py-20 lg:py-28"
+      className="scroll-mt-20 py-20 lg:py-28"
       style={{ background: "hsl(270 20% 93%)" }}
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">

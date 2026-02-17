@@ -5,7 +5,7 @@ export default function InfoVisitaSection() {
   return (
     <section
       id="info-visita"
-      className="py-20 lg:py-28"
+      className="scroll-mt-20 py-20 lg:py-28"
       style={{ background: "hsl(200 25% 92%)" }}
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">

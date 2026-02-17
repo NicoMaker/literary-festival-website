@@ -86,7 +86,7 @@ export default function ProposteSection() {
   return (
     <section
       id="vuoi-visitare"
-      className="py-20 lg:py-28"
+      className="scroll-mt-20 py-20 lg:py-28"
       style={{ background: "hsl(140 25% 93%)" }}
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
