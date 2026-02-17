@@ -38,7 +38,7 @@ const galleries: Record<string, EditionGallery> = {
     photos: [
       { src: "/images/edizione-2024.jpg", alt: "Panoramica della seconda edizione del festival" },
       { src: "/images/gallery/2024-1.jpg", alt: "Incontro con l'autore nel cortile" },
-      { src: "/images/gallery/2024-2.jpg", alt: "Laboratorio di origami per tutte le et\u00e0" },
+      { src: "/images/gallery/2024-2.jpg", alt: "Laboratorio di origami per tutte le età" },
       { src: "/images/gallery/2024-3.jpg", alt: "Espositori e visitatori al mercatino" },
     ],
   },
@@ -88,7 +88,7 @@ export default async function FotoPage({ params }: { params: Promise<{ year: str
   }
 
   return (
-    <div className="min-h-screen" style={{ background: gallery.accentColor }}>
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="bg-primary text-primary-foreground">
         <div className="mx-auto max-w-7xl px-4 py-6 lg:px-8">
@@ -124,7 +124,7 @@ export default async function FotoPage({ params }: { params: Promise<{ year: str
           {gallery.photos.map((photo, i) => (
             <div
               key={photo.src}
-              className={`group relative overflow-hidden rounded-2xl border border-border shadow-lg ${
+              className={`group relative overflow-hidden rounded-2xl border border-border shadow-md ${
                 i === 0 ? "sm:col-span-2" : ""
               }`}
             >
@@ -148,7 +148,7 @@ export default async function FotoPage({ params }: { params: Promise<{ year: str
       </div>
 
       {/* Other editions nav */}
-      <div className="border-t border-border bg-background/60 backdrop-blur-sm">
+      <div className="border-t border-border bg-white backdrop-blur-sm">
         <div className="mx-auto max-w-7xl px-4 py-12 text-center lg:px-8">
           <h3 className="font-serif text-xl font-bold text-foreground">
             Altre edizioni
