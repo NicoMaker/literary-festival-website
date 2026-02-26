@@ -19,7 +19,7 @@ const sourceSans = Source_Sans_3({
 export const metadata: Metadata = {
   title: "Cortile del Libro e della Carta | Festival Letterario - Montereale Valcellina",
   description:
-    "Festival letterario nel cuore di Montereale Valcellina. Incontri con autori, laboratori per bambini, mercatino del libro e della carta, musica e gastronomia. 16-17 Maggio 2026.",
+    "Festival letterario nel cuore di Montereale Valcellina. Incontri con autori, laboratori per bambini, mercatino del libro e della carta, musica e gastronomia. 24-25 Maggio 2025.",
 };
 
 export const viewport: Viewport = {
@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it" className={`${lora.variable} ${sourceSans.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-mono antialiased">{children}</body>
     </html>
   );
 }

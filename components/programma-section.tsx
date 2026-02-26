@@ -43,10 +43,44 @@ const categoryConfig: Record<EventCategory, { label: string; icon: React.ReactNo
   bambini: { label: "Laboratori Infanzia", icon: <Palette className="h-4 w-4" />, color: "bg-chart-4 text-primary-foreground", gradient: "linear-gradient(135deg, hsl(35 80% 55%) 0%, hsl(35 80% 38%) 100%)" },
 };
 
-function EventCard({ event, isMercatino = false }: { event: EventItem; isMercatino?: boolean }) {
+function MercatinoCard({ event }: { event: EventItem }) {
+  return (
+    <Link href={`/evento/${event.slug}`} className="group relative block w-full overflow-hidden rounded-2xl border-2 border-accent/30 bg-gradient-to-br from-accent/10 via-white to-primary/5 shadow-xl transition-all hover:-translate-y-1 hover:shadow-2xl">
+      <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-accent/10" />
+      <div className="absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-primary/10" />
+      <div className="relative flex flex-col items-center gap-6 p-8 md:flex-row md:p-10">
+        <div className="relative h-40 w-40 flex-shrink-0 overflow-hidden rounded-xl shadow-lg md:h-48 md:w-48">
+          <Image src={event.image || "/images/books-market.jpg"} alt={event.title} fill className="object-cover transition-transform group-hover:scale-105" />
+        </div>
+        <div className="flex-1 text-center md:text-left">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-sm font-semibold text-accent-foreground">
+            <Users className="h-4 w-4" />
+            Evento Principale
+          </div>
+          <h3 className="font-serif text-3xl font-bold text-foreground md:text-4xl">{event.title}</h3>
+          <p className="mt-3 text-lg leading-relaxed text-muted-foreground md:text-xl">{event.description}</p>
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-4 md:justify-start">
+            <div className="flex items-center gap-2 rounded-lg bg-white/80 px-4 py-2 shadow-sm">
+              <Clock className="h-5 w-5 text-accent" />
+              <span className="font-mono text-base font-semibold text-foreground">{event.time}</span>
+            </div>
+            {event.location && (
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <span className="text-sm">{event.location}</span>
+              </div>
+            )}
+          </div>
+          <p className="mt-4 text-sm font-semibold text-primary transition-opacity group-hover:opacity-100">Scopri di piu →</p>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+function EventCard({ event }: { event: EventItem }) {
   const cat = categoryConfig[event.category];
   return (
-    <Link href={`/evento/${event.slug}`} className={`group block w-full rounded-xl border border-border bg-white p-5 text-left shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg ${isMercatino ? "border-accent/40 bg-accent/5" : ""}`}>
+    <Link href={`/evento/${event.slug}`} className="group block w-full rounded-xl border border-border bg-white p-5 text-left shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg">
       <div className="mb-3 flex items-start justify-between gap-3">
         <div className="flex items-center gap-2 text-muted-foreground"><Clock className="h-4 w-4" /><span className="font-mono text-sm font-semibold">{event.time}</span></div>
         <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ${cat.color}`}>{cat.icon}<span className="hidden sm:inline">{cat.label}</span></span>
@@ -92,19 +126,21 @@ export default function ProgrammaSection() {
           ))}
         </div>
 
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
+        {/* Mercatino - sempre in evidenza sopra tutto quando e' domenica */}
+        {showMercatino && mercatino && (
+          <div className="mt-10">
+            <MercatinoCard event={mercatino} />
+          </div>
+        )}
+
+        <div className="mt-8 flex flex-wrap justify-center gap-2">
           <button type="button" onClick={() => setActiveFilter("all")} className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all ${activeFilter === "all" ? "bg-foreground text-background" : "bg-white text-foreground shadow-sm hover:bg-secondary"}`}>Tutti</button>
           {(Object.entries(categoryConfig) as [EventCategory, typeof categoryConfig["letterari"]][]).map(([key, config]) => (
             <button type="button" key={key} onClick={() => setActiveFilter(key)} className={`inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-medium transition-all ${activeFilter === key ? config.color : "bg-white text-foreground shadow-sm hover:bg-secondary"}`}>{config.icon}{config.label}</button>
           ))}
         </div>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {showMercatino && mercatino && (
-            <div className="md:col-span-2 lg:col-span-3">
-              <EventCard event={mercatino} isMercatino />
-            </div>
-          )}
+        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {filteredOther.map((event) => (
             <EventCard key={event.slug} event={event} />
           ))}
