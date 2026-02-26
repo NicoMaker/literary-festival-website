@@ -1,4 +1,4 @@
-import { Store, FileText, ExternalLink } from "lucide-react";
+import { Store, FileText, ExternalLink, BookOpen, Mail } from "lucide-react";
 import Image from "next/image";
 
 export default function CandidatureSection() {
@@ -17,7 +17,9 @@ export default function CandidatureSection() {
             Partecipa al festival
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-pretty">
-            {"Vuoi portare i tuoi libri, le tue creazioni o il tuo laboratorio? Candidati per la prossima edizione."}
+            {
+              "Vuoi portare i tuoi libri, le tue creazioni o il tuo laboratorio? Candidati per la prossima edizione."
+            }
           </p>
         </div>
 
@@ -40,7 +42,9 @@ export default function CandidatureSection() {
               Candidati come Espositore
             </h3>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              {"Porta i tuoi prodotti e le tue creazioni nel nostro mercatino letterario. Uno spazio nel cortile storico di Palazzo Toffoli per far conoscere la tua realtà editoriale."}
+              {
+                "Porta i tuoi prodotti e le tue creazioni nel nostro mercatino letterario. Uno spazio nel cortile storico di Palazzo Toffoli per far conoscere la tua realtà editoriale."
+              }
             </p>
             <ul className="mt-6 flex flex-col gap-2 text-left text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
@@ -79,7 +83,9 @@ export default function CandidatureSection() {
               Presentazioni, laboratori, idee
             </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              {"Hai un libro da presentare, un laboratorio da proporre o un'idea creativa? Inviaci la tua candidatura per partecipare al programma."}
+              {
+                "Hai un libro da presentare, un laboratorio da proporre o un'idea creativa? Inviaci la tua candidatura per partecipare al programma."
+              }
             </p>
             <ul className="mt-6 flex flex-col gap-2 text-left text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
@@ -107,6 +113,32 @@ export default function CandidatureSection() {
           </div>
         </div>
 
+        {/* Casa Editrice */}
+        <div className="mt-10 flex flex-col items-center gap-6 rounded-2xl border border-border bg-white p-8 text-center shadow-md lg:flex-row lg:text-left lg:p-10">
+          <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+            <BookOpen className="h-8 w-8" />
+          </div>
+          <div className="flex-1">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
+              Sei una Casa Editrice?
+            </p>
+            <h3 className="mt-1 font-serif text-2xl font-bold text-foreground">
+              Collabora con noi
+            </h3>
+            <p className="mt-2 leading-relaxed text-muted-foreground">
+              {
+                "Sei una casa editrice e vuoi partecipare al festival con i tuoi autori e titoli? Contattaci direttamente via email per discutere le opportunità di collaborazione."
+              }
+            </p>
+          </div>
+          <a
+            href="mailto:info@cortiledellibroedellacarta.it"
+            className="inline-flex flex-shrink-0 items-center gap-2 rounded-lg bg-primary px-8 py-3 font-semibold text-primary-foreground transition-transform hover:scale-105"
+          >
+            <Mail className="h-4 w-4" />
+            Scrivici una mail
+          </a>
+        </div>
       </div>
     </section>
   );
