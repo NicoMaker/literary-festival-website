@@ -1,4 +1,4 @@
-import { Store, FileText, ExternalLink, BookMarked } from "lucide-react";
+import { Store, FileText, ExternalLink } from "lucide-react";
 import Image from "next/image";
 
 export default function CandidatureSection() {
@@ -17,7 +17,7 @@ export default function CandidatureSection() {
             Partecipa al festival
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-pretty">
-            {"Sei una casa editrice, un libraio, un artigiano? Vuoi proporre un evento? Candidati per la prossima edizione."}
+            {"Vuoi portare i tuoi libri, le tue creazioni o il tuo laboratorio? Candidati per la prossima edizione."}
           </p>
         </div>
 
@@ -39,9 +39,6 @@ export default function CandidatureSection() {
             <h3 className="mt-6 font-serif text-2xl font-bold text-foreground">
               Candidati come Espositore
             </h3>
-            <p className="mt-2 text-sm font-medium text-accent">
-              Sei una casa editrice?
-            </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">
               {"Porta i tuoi prodotti e le tue creazioni nel nostro mercatino letterario. Uno spazio nel cortile storico di Palazzo Toffoli per far conoscere la tua realtà editoriale."}
             </p>
@@ -110,23 +107,6 @@ export default function CandidatureSection() {
           </div>
         </div>
 
-        <div className="mx-auto mt-10 max-w-3xl rounded-xl border border-border bg-white p-6 text-center shadow-md">
-          <div className="mb-3 flex items-center justify-center gap-2">
-            <BookMarked className="h-5 w-5 text-primary" />
-            <span className="font-serif text-lg font-bold text-foreground">
-              Sei una casa editrice?
-            </span>
-          </div>
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            {"Il Cortile del Libro e della Carta accoglie case editrici indipendenti, piccoli editori e realtà artigianali legate al mondo del libro e della carta. Contattaci per scoprire le modalità di partecipazione e le agevolazioni dedicate."}
-          </p>
-          <a
-            href="mailto:info@cortiledellibroedellacarta.it"
-            className="mt-4 inline-block text-sm font-semibold text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
-          >
-            info@cortiledellibroedellacarta.it
-          </a>
-        </div>
       </div>
     </section>
   );
