@@ -1,8 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import {
-  ArrowLeft,
   Clock,
   MapPin,
   User,
@@ -12,6 +10,7 @@ import {
   Users,
   Palette,
 } from "lucide-react";
+import { BackToProgramma } from "@/components/back-to-programma";
 import { getEventBySlug, allEvents, type EventCategory } from "@/lib/events-data";
 import { notFound } from "next/navigation";
 
@@ -96,13 +95,7 @@ export default async function EventPage({
         <div className="relative flex h-full flex-col justify-between px-4 py-6 text-white lg:px-8">
           {/* back link */}
           <div>
-            <Link
-              href="/#programma"
-              className="inline-flex items-center gap-2 rounded-lg bg-white/15 px-4 py-2 text-sm font-medium backdrop-blur-sm transition-colors hover:bg-white/25"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Torna al programma
-            </Link>
+            <BackToProgramma variant="hero" />
           </div>
 
           {/* info in basso */}
@@ -264,13 +257,7 @@ export default async function EventPage({
             </div>
 
             {/* Pulsante ritorno */}
-            <Link
-              href="/#programma"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Tutti gli eventi
-            </Link>
+            <BackToProgramma variant="sidebar" />
           </div>
         </div>
       </div>
