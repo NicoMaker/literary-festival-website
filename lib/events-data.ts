@@ -121,7 +121,7 @@ export const sundayEvents: EventItem[] = [
     slug: "origami-per-tutte-le-eta",
     time: "14:30",
     day: "domenica",
-    title: "Origami per tutte le eta",
+    title: "Origami per tutte le età",
     description:
       "Laboratorio gratuito di origami aperto a tutte le età. Impareremo le tecniche base e avanzate dell'arte della piegatura della carta, un'antica tradizione giapponese.",
     author: "Maria Elena Fornasier",
