@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Clock, BookOpen, Users, Palette,
-  ArrowLeft, MapPin, User, Building, Tag,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 type EventCategory = "letterari" | "tutti" | "bambini";
 interface EventItem {
@@ -43,117 +43,10 @@ const categoryConfig: Record<EventCategory, { label: string; icon: React.ReactNo
   bambini: { label: "Laboratori Infanzia", icon: <Palette className="h-4 w-4" />, color: "bg-chart-4 text-primary-foreground", gradient: "linear-gradient(135deg, hsl(35 80% 55%) 0%, hsl(35 80% 38%) 100%)" },
 };
 
-const fallbackImage: Record<EventCategory, string> = {
-  letterari: "/images/hero-courtyard.jpg",
-  tutti: "/images/books-market.jpg",
-  bambini: "/images/kids-workshop.jpg",
-};
-
-function EventDetailView({ event, onBack }: { event: EventItem; onBack: () => void }) {
-  const cat = categoryConfig[event.category];
-  const heroImg = event.image ?? fallbackImage[event.category];
-  const dayLabel = event.day === "sabato" ? "Sabato 16 Maggio 2026" : "Domenica 17 Maggio 2026";
-
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    window.scrollTo(0, 0);
-    return () => { document.body.style.overflow = ""; };
-  }, []);
-
-  useEffect(() => {
-    const h = (e: KeyboardEvent) => { if (e.key === "Escape") onBack(); };
-    window.addEventListener("keydown", h);
-    return () => window.removeEventListener("keydown", h);
-  }, [onBack]);
-
-  return (
-    <div className="fixed inset-0 z-[200] overflow-y-auto bg-white" style={{ animation: "slideInRight 0.3s ease-out" }}>
-      <style>{`@keyframes slideInRight { from { opacity:0; transform:translateX(40px); } to { opacity:1; transform:translateX(0); } }`}</style>
-
-      {/* Hero immagine */}
-      <div className="relative h-64 overflow-hidden md:h-80">
-        <Image src={heroImg} alt={event.title} fill className="object-cover" priority />
-        <div className="absolute inset-0 opacity-80" style={{ background: cat.gradient }} />
-        <div className="absolute -top-12 -right-12 h-56 w-56 rounded-full bg-white/10" />
-        <div className="absolute -bottom-6 -left-6 h-36 w-36 rounded-full bg-white/10" />
-        <div className="relative flex h-full flex-col justify-between px-4 py-5 text-white lg:px-8">
-          <button type="button" onClick={onBack} className="inline-flex w-fit items-center gap-2 rounded-lg bg-white/15 px-4 py-2 text-sm font-medium backdrop-blur-sm transition-colors hover:bg-white/25">
-            <ArrowLeft className="h-4 w-4" /> Torna al programma
-          </button>
-          <div>
-            <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-white/20 px-3 py-1 text-xs font-semibold backdrop-blur-sm">{cat.icon}{cat.label}</div>
-            <div className="mb-2 flex items-center gap-2 text-white/80"><Clock className="h-4 w-4" /><span className="font-mono text-sm font-semibold">{dayLabel} · ore {event.time}</span></div>
-            <h1 className="font-serif text-2xl font-bold leading-tight drop-shadow md:text-3xl lg:text-4xl">{event.title}</h1>
-            {(event.author || event.curator) && (
-              <div className="mt-2 flex flex-wrap gap-4">
-                {event.author && <div className="flex items-center gap-1.5 text-white/90"><User className="h-4 w-4" /><span className="text-sm font-medium">con {event.author}</span></div>}
-                {event.curator && <div className="flex items-center gap-1.5 text-white/75"><Building className="h-4 w-4" /><span className="text-sm">a cura di {event.curator}</span></div>}
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Contenuto */}
-      <div className="mx-auto max-w-4xl px-4 py-12 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-3">
-          <div className="lg:col-span-2">
-            <h2 className="font-serif text-xl font-bold text-foreground">Descrizione</h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">{event.description}</p>
-          </div>
-          <div className="flex flex-col gap-4">
-            <div className="rounded-2xl border border-border bg-white p-6 shadow-md">
-              <h3 className="font-serif text-base font-bold text-foreground">Informazioni</h3>
-              <div className="mt-4 flex flex-col gap-4">
-                <div className="flex items-start gap-3">
-                  <div className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg text-white" style={{ background: cat.gradient }}><Clock className="h-4 w-4" /></div>
-                  <div><p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Orario</p><p className="mt-0.5 font-medium text-foreground">{event.time}</p><p className="text-xs text-muted-foreground">{dayLabel}</p></div>
-                </div>
-                {event.location && (
-                  <div className="flex items-start gap-3">
-                    <div className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-secondary text-secondary-foreground"><MapPin className="h-4 w-4" /></div>
-                    <div><p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Luogo</p><p className="mt-0.5 font-medium text-foreground">{event.location}</p></div>
-                  </div>
-                )}
-                {event.author && (
-                  <div className="flex items-start gap-3">
-                    <div className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg text-white" style={{ background: cat.gradient }}><User className="h-4 w-4" /></div>
-                    <div><p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Con</p><p className="mt-0.5 font-medium text-foreground">{event.author}</p></div>
-                  </div>
-                )}
-                {event.curator && (
-                  <div className="flex items-start gap-3">
-                    <div className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-secondary text-secondary-foreground"><Building className="h-4 w-4" /></div>
-                    <div><p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">A cura di</p><p className="mt-0.5 font-medium text-foreground">{event.curator}</p></div>
-                  </div>
-                )}
-                {event.note && (
-                  <div className="flex items-start gap-3">
-                    <div className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-amber-100 text-amber-700"><Tag className="h-4 w-4" /></div>
-                    <div><p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Nota</p><p className="mt-0.5 font-medium text-amber-700">{event.note}</p></div>
-                  </div>
-                )}
-              </div>
-            </div>
-            <button type="button" onClick={onBack} className="inline-flex items-center justify-center gap-2 rounded-xl border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary">
-              <ArrowLeft className="h-4 w-4" /> Tutti gli eventi
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className="border-t border-border">
-        <div className="mx-auto max-w-7xl px-4 py-8 text-center lg:px-8">
-          <p className="text-sm text-muted-foreground">Cortile del Libro e della Carta · 16–17 Maggio 2026 · Montereale Valcellina (PN)</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function EventCard({ event, onClick, isMercatino = false }: { event: EventItem; onClick: () => void; isMercatino?: boolean }) {
+function EventCard({ event, isMercatino = false }: { event: EventItem; isMercatino?: boolean }) {
   const cat = categoryConfig[event.category];
   return (
-    <button type="button" onClick={onClick} className={`group w-full cursor-pointer rounded-xl border border-border bg-white p-5 text-left shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg ${isMercatino ? "border-accent/40 bg-accent/5" : ""}`}>
+    <Link href={`/evento/${event.slug}`} className={`group block w-full rounded-xl border border-border bg-white p-5 text-left shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg ${isMercatino ? "border-accent/40 bg-accent/5" : ""}`}>
       <div className="mb-3 flex items-start justify-between gap-3">
         <div className="flex items-center gap-2 text-muted-foreground"><Clock className="h-4 w-4" /><span className="font-mono text-sm font-semibold">{event.time}</span></div>
         <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ${cat.color}`}>{cat.icon}<span className="hidden sm:inline">{cat.label}</span></span>
@@ -163,25 +56,20 @@ function EventCard({ event, onClick, isMercatino = false }: { event: EventItem; 
       {event.curator && <p className="mt-0.5 text-xs text-muted-foreground">a cura di {event.curator}</p>}
       <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-foreground">{event.description}</p>
       {event.note && <span className="mt-2 inline-block rounded-md bg-secondary px-2 py-1 text-xs font-medium text-secondary-foreground">{event.note}</span>}
-      <p className="mt-3 text-xs font-semibold text-primary opacity-0 transition-opacity group-hover:opacity-100">Scopri di più →</p>
-    </button>
+      <p className="mt-3 text-xs font-semibold text-primary opacity-0 transition-opacity group-hover:opacity-100">Scopri di piu →</p>
+    </Link>
   );
 }
 
 export default function ProgrammaSection() {
   const [activeDay, setActiveDay] = useState<"sabato" | "domenica">("domenica");
   const [activeFilter, setActiveFilter] = useState<EventCategory | "all">("all");
-  const [selectedEvent, setSelectedEvent] = useState<EventItem | null>(null);
 
   const allDayEvents = activeDay === "sabato" ? saturdayEvents : sundayEvents;
   const mercatino = allDayEvents.find((e) => e.slug === "mercatino");
   const otherEvents = allDayEvents.filter((e) => e.slug !== "mercatino");
   const filteredOther = activeFilter === "all" ? otherEvents : otherEvents.filter((e) => e.category === activeFilter);
   const showMercatino = mercatino && (activeFilter === "all" || activeFilter === mercatino.category);
-
-  if (selectedEvent) {
-    return <EventDetailView event={selectedEvent} onBack={() => setSelectedEvent(null)} />;
-  }
 
   return (
     <section id="programma" className="scroll-mt-20 py-20 lg:py-28" style={{ background: "#ffffff" }}>
@@ -214,11 +102,11 @@ export default function ProgrammaSection() {
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {showMercatino && mercatino && (
             <div className="md:col-span-2 lg:col-span-3">
-              <EventCard event={mercatino} onClick={() => setSelectedEvent(mercatino)} isMercatino />
+              <EventCard event={mercatino} isMercatino />
             </div>
           )}
           {filteredOther.map((event) => (
-            <EventCard key={event.slug} event={event} onClick={() => setSelectedEvent(event)} />
+            <EventCard key={event.slug} event={event} />
           ))}
         </div>
 
