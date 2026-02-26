@@ -252,7 +252,6 @@ export default function ProgrammaSection() {
           </p>
         </div>
 
-        {/* Flyer image */}
         <div className="mt-10 flex justify-center">
           <div className="overflow-hidden rounded-xl border border-border shadow-lg">
             <Image
@@ -265,7 +264,6 @@ export default function ProgrammaSection() {
           </div>
         </div>
 
-        {/* Day tabs */}
         <div className="mt-12 flex justify-center gap-4">
           <button
             type="button"
@@ -291,7 +289,6 @@ export default function ProgrammaSection() {
           </button>
         </div>
 
-        {/* Category filter */}
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             type="button"
@@ -326,7 +323,6 @@ export default function ProgrammaSection() {
           ))}
         </div>
 
-        {/* Events grid */}
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {filteredEvents.map((event) => (
             <EventCard

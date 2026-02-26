@@ -22,7 +22,6 @@ export default function InfoVisitaSection() {
         </div>
 
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
-          {/* Map */}
           <div className="flex flex-col gap-6">
             <div className="overflow-hidden rounded-2xl border border-border shadow-lg">
               <iframe

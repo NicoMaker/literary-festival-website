@@ -27,7 +27,6 @@ export default function ContattiSection() {
         </div>
 
         <div className="mt-14 grid gap-10 lg:grid-cols-2">
-          {/* Contact form */}
           <div className="rounded-2xl border border-border bg-white p-8 shadow-md">
             <h3 className="font-serif text-xl font-bold text-foreground">
               Scrivici un messaggio
@@ -130,7 +129,6 @@ export default function ContattiSection() {
             )}
           </div>
 
-          {/* Contact info & social */}
           <div className="flex flex-col gap-6">
             <div className="rounded-2xl border border-border bg-white p-8 shadow-md">
               <h3 className="font-serif text-xl font-bold text-foreground">
@@ -203,7 +201,6 @@ export default function ContattiSection() {
               </div>
             </div>
 
-            {/* Panoramic image */}
             <div className="overflow-hidden rounded-2xl">
               <img
                 src="/images/montereale-panorama.jpg"

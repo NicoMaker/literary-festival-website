@@ -21,7 +21,6 @@ export default function CandidatureSection() {
           </p>
         </div>
 
-        {/* Espositore image */}
         <div className="relative mx-auto mt-10 h-64 max-w-3xl overflow-hidden rounded-2xl md:h-80">
           <Image
             src="/images/espositore.jpg"
@@ -33,7 +32,6 @@ export default function CandidatureSection() {
         </div>
 
         <div className="mt-14 grid gap-8 md:grid-cols-2">
-          {/* Espositore */}
           <div className="flex flex-col items-center rounded-2xl border border-border bg-white p-8 text-center shadow-md lg:p-12">
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
               <Store className="h-8 w-8" />
@@ -112,7 +110,6 @@ export default function CandidatureSection() {
           </div>
         </div>
 
-        {/* Info box for publishers */}
         <div className="mx-auto mt-10 max-w-3xl rounded-xl border border-border bg-white p-6 text-center shadow-md">
           <div className="mb-3 flex items-center justify-center gap-2">
             <BookMarked className="h-5 w-5 text-primary" />
